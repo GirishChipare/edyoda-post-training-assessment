@@ -1,5 +1,12 @@
 ASSINMENT 4-EXAMPLE VOTING APP
 
+[root@ip-172-31-22-24 ~]# git clone https://github.com/ashishrpandey/example-voting-app
+[root@ip-172-31-22-24 ~]# ls
+example-voting-app  get_helm.sh  istio-1.5.2  istio-1.5.2-linux.tar.gz  kubernetes-training
+[root@ip-172-31-22-24 ~]# cd example-voting-app/k8s-specifications/
+[root@ip-172-31-22-24 k8s-specifications]# ls
+db-deployment.yaml  db-service.yaml  redis-deployment.yaml  redis-service.yaml  result-deployment.yaml  result-service.yaml  vote-deployment.yaml  vote-service.yaml  worker-deployment.yaml
+
 On kubectl apply -f .  the voting app pods-db, redis, result and vote- will be created.
 
 deployment.apps/db created

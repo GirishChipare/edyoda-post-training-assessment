@@ -44,9 +44,9 @@ Then after opening two separate browsers with the public IP with respective port
  
   
   
-  
-  
-  After deleting DB pod we will lose all the data in that db but the db pod will be restarted because of REPLICASET
+  After deleting voting pod, the new voting pod gets created because of RS and works as normal.
+  after deleting worker pod, the new worker pod gets created because of RS and works as normal.  
+  After deleting DB pod we will lose all the data in that db but new db pod will be created because of REPLICASET
   but now the result app will not work because it will be expecting the input from the db which has hot deleted and fpr that we have to delete the result app so that it restarts and connect tp new db pod.
   
   [root@ip-172-31-22-24 k8s-specifications]# kubectl delete po db-b54cd94f4-49j4d

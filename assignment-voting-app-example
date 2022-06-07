@@ -76,3 +76,25 @@ worker-dd46d7584-k22kb    2/2     Running       0          118s
   
   Result pod stopped after db deletion bcz it was expecting the input from the db pod (which was previously deleted)
  and to make the result app work we now have to delete the result app.
+ 
+ 
+ 
+ASSIGNMENT 3
+Approach =>
+First we will check the port status:
+cmd: - sudo netstat -tulpn | grep LISTEN
+If the port is already listening, then we will check the services whether it is on ClusterIP or NodePort.
+cmd: - kubectl get svc
+If it is ClusterIP, then we will change it to NodePort using :- kubectl edit service #servicename
+Even after changing the type of Service if it is not working then we delete all the old pods and services and apply the replicaSet.yaml
+so that it will create the services again.
+cmd: - kubectl apply -f replicaSet.yaml
+Thereafter, we will try to run the application. If it fails to run again then the last option is to change the port in replicaSet.yaml
+
+
+ASSIGNMENT 1
+In case of single copy of pod we should use daemonSet instead of RS, so that the pods can be garbage collected when we delete the daemonSet and no new pod is created.
+If we want to have a single instance of pod on all nodes hen we go for daemonSet.
+
+
+

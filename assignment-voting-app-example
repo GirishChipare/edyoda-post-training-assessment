@@ -97,4 +97,29 @@ In case of single copy of pod we should use daemonSet instead of RS, so that the
 If we want to have a single instance of pod on all nodes hen we go for daemonSet.
 
 
+ASSIGNMENT 2
 
+
+
+In this case we will use rolling update.
+It is the gradual process that allows to update application with some changes and no downtime.
+The previous pod is taken down and the updated one is deployed.
+The newly deployed application will have next version than previous application
+
+
+
+Following part will be needed to add in yaml file under spec
+
+
+
+minReadySeconds: 5
+strategy:
+type: RollingUpdate
+rollingUpdate:
+maxSurge: 1
+maxUnavailable: 1
+
+
+
+Example
+command for rolling update --> kubectl set image deployment nginx-deployment nginx=nginx:1.14.2 --record
